@@ -4,6 +4,8 @@
 
 def canUnlockAll(boxes):
     ''' determines if all the boxes can be opened. '''
+    if (len(boxes) < 2):
+        return True
     keys = {0}
     opened = set()
     while (len(keys) > len(opened)):
