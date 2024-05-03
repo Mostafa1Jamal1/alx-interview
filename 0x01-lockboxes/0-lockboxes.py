@@ -13,7 +13,7 @@ def canUnlockAll(boxes):
 
         for key in keys:
             if (key > len(boxes)):
-                keys.pop(key)
+                keys.remove(key)
 
         if (len(opened) == len(boxes)):
             return True
