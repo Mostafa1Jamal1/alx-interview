@@ -15,7 +15,7 @@ def canUnlockAll(boxes):
 
         toremove = set()
         for key in keys:
-            if (key > len(boxes)):
+            if (key >= len(boxes)):
                 toremove.add(key)
         keys -= toremove
 
