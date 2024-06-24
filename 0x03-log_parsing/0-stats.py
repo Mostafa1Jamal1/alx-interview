@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""This module processes log entries from a stream
+and calculates the total file size and the count of status codes.
+"""
 import signal
 import sys
 import re
@@ -14,9 +17,11 @@ pattern = re.compile(
 )
 
 def handler(segnum, frame):
+    """Prints the total file size and the count of status codes."""
     print(f"File size: {total_size}")
     for k, v in sorted(status_code_d.items()):
         print(f"{k}: {v}")
+    sys.exit(0)
 
 signal.signal(signal.SIGINT, handler)
 
