@@ -22,7 +22,7 @@ def is_continuation(byte):
 
 def validUTF8(data):
     """ determines if a given data set represents a valid UTF-8 encoding. """
-    n_ones = 0
+    n_ones = -1
     for byte in data:
         if is_continuation(byte):
             if n_ones > 0:
@@ -33,7 +33,7 @@ def validUTF8(data):
             return False
         if is_char(byte):
             continue
-        n_ones = 0
+        n_ones = -1
         x = 128
         while x & byte == x:
             x = x >> 1
