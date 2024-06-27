@@ -5,7 +5,7 @@
 def is_char(byte):
     """Check if the integer as a byte represent a character
     """
-    if byte >= 32 and byte <= 127:
+    if byte & 128 == 0:
         return True
     return False
 
