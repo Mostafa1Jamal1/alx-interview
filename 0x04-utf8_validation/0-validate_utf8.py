@@ -38,8 +38,8 @@ def validUTF8(data):
         while x & byte == x:
             x = x >> 1
             n_ones += 1
-#            if n_ones > 4:
-#                return False
+            if n_ones > 4:
+                return False
     if n_ones > 0:
         return False
     return True
