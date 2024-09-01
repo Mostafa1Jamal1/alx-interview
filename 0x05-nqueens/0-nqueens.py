@@ -27,17 +27,15 @@ def Nqueen_Solving(Psol, N):
     or None to backtrack
     """
     if len(Psol) == N:
-        return Psol
+        print(Psol)
+        return
     col = len(Psol)
     for i in range(N):
         place = [col, i]
         if check_feasible(Psol, place, N):
             Psol.append(place)
-            a_sol = Nqueen_Solving(Psol, N)
-            if a_sol is not None:
-                return a_sol
-            Psol.remove(place)
-    return None
+            Nqueen_Solving(Psol, N)
+            Psol.pop()
 
 
 if __name__ == '__main__':
@@ -52,7 +50,4 @@ if __name__ == '__main__':
     if N < 4:
         print("N must be at least 4")
         exit(1)
-    for i in range(N):
-        a_sol = Nqueen_Solving([[0, i]], N)
-        if a_sol is not None:
-            print(a_sol)
+    Nqueen_Solving([], N)
